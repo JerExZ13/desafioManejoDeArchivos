@@ -56,10 +56,11 @@ const env = async () => {
   console.log(getProductById);
 
   let updatedProduct = await manager.updateProduct(2, "nutella", "500gr", 1200, "No image", 153, 12);
-  //console.log(updatedProduct)
-
+  let getProductById1 = await manager.getProductsById(2);
+  console.log(getProductById1)
+  let deleteProduct1 = await manager.deleteProduct(3);
   let deleteProduct = await manager.deleteProduct(5);
-  console.log(deleteProduct);
+  console.log(deleteProduct1);
 
 };
 

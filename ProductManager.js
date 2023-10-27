@@ -47,7 +47,7 @@ export default class ProductManager {
     return product ? product : null;
   };
 
-  updateProduct = async (id, title, stock, descript, price, thumbnail) => {
+  updateProduct = async (id, title, descript, price, thumbnail, stock) => {
     try {
       const products = await this.getProducts();
       if (products.length === 0) {
@@ -55,14 +55,14 @@ export default class ProductManager {
       }
       const productIndex = products.findIndex((product) => product.id === id);
       if (productIndex !== -1) {
-        const productoAModificado = products.filter((product) => product.id === id);
+        const productoAModificado = products.find((product) => product.id === id);
         const productoModificado = {
           id: id,
           title: title || productoAModificado[0].title,
-          stock: stock || productoAModificado[0].stock,
           descript: descript || productoAModificado[0].descript,
           price: price || productoAModificado[0].price,
           thumbnail: thumbnail || productoAModificado[0].thumbnail,
+          stock: stock || productoAModificado[0].stock,
         }
         products[productIndex] = productoModificado;
         await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
@@ -79,11 +79,12 @@ export default class ProductManager {
     const products = await this.getProducts();
     const productIndex = products.findIndex((product) => product.id === id);
     if (productIndex !== -1) {
-      products.splice(productIndex, 1);
-      await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
-      return products;
-    }else {
-      return `El producto a eliminar con el id ${id} no existe en la lista`;
+        products.splice(productIndex, 1);
+        await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
+        return "Producto eliminado con éxito";
+    } else {
+        return `El producto a eliminar con el id ${id} no existe en la lista`;
     }
-  };
+};
+
 }
