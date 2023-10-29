@@ -24,5 +24,14 @@
 		"code": "abc1233",
 		"stock": 25,
 		"id": 4
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc1234",
+		"stock": 25,
+		"id": 6
 	}
 ]
