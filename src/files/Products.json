@@ -33,5 +33,68 @@
 		"code": "abc1234",
 		"stock": 25,
 		"id": 6
+	},
+	{
+		"title": "producto prueba2",
+		"description": "Este es un producto prueba2",
+		"price": 200,
+		"thumbnail": "Sin imagen2",
+		"code": "abc1232",
+		"stock": 25,
+		"id": 7
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123asd4",
+		"stock": 25,
+		"id": 8
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123fas4",
+		"stock": 25,
+		"id": 9
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123df4",
+		"stock": 25,
+		"id": 10
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123ht4",
+		"stock": 25,
+		"id": 11
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123G4",
+		"stock": 25,
+		"id": 12
+	},
+	{
+		"title": "producto prueba4",
+		"description": "Este es un producto prueba4",
+		"price": 200,
+		"thumbnail": "Sin imagen4",
+		"code": "abc123QW4",
+		"stock": 25,
+		"id": 13
 	}
 ]
