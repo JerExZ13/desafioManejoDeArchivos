@@ -1,0 +1,28 @@
+[
+	{
+		"title": "producto prueba",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "abc1231",
+		"stock": 25,
+		"id": 1
+	},
+	{
+		"id": 2,
+		"title": "nutella",
+		"descript": "500gr",
+		"price": 1200,
+		"thumbnail": "No image",
+		"stock": 153
+	},
+	{
+		"title": "producto prueba3",
+		"description": "Este es un producto prueba3",
+		"price": 200,
+		"thumbnail": "Sin imagen3",
+		"code": "abc1233",
+		"stock": 25,
+		"id": 4
+	}
+]
