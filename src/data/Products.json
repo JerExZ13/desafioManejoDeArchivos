@@ -1,0 +1,198 @@
+[
+	{
+		"id": 1,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 3,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 4,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 5,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 6,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 9,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 10,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 11,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 12,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 13,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 14,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AGSM123",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Milk",
+		"description": "1 liter",
+		"code": "MILK001",
+		"price": 2.5,
+		"status": true,
+		"stock": 10,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/milk1.jpg",
+			"http://localhost:8080/images/milk2.jpg"
+		]
+	},
+	{
+		"id": 16,
+		"title": "Producto Modificado",
+		"description": "Nueva descripción del producto",
+		"code": "NEW123",
+		"price": 49.99,
+		"status": true,
+		"stock": 20,
+		"category": "Electronics",
+		"thumbnails": [
+			"http://example.com/new_image1.jpg",
+			"http://example.com/new_image2.jpg"
+		]
+	},
+	{
+		"id": 17,
+		"title": "Producto Modificado",
+		"description": "Nueva descripción del producto",
+		"code": "NEW1as23",
+		"price": 49.99,
+		"status": true,
+		"stock": 20,
+		"category": "Electronics",
+		"thumbnails": [
+			"http://example.com/new_image1.jpg",
+			"http://example.com/new_image2.jpg"
+		]
+	}
+]
