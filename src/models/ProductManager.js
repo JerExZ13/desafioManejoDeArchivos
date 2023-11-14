@@ -1,19 +1,26 @@
-import fs from "fs";
+import fs from "fs/promises";
 
 export default class ProductManager {
-  constructor() {
+  constructor(io) {
     this.path = "./src/data/Products.json";
+    this.io = io;
   }
 
   getProducts = async () => {
-    if (fs.existsSync(this.path)) {
-      const data = await fs.promises.readFile(this.path, "utf-8");
-      const result = JSON.parse(data);
-      return result;
-    } else {
-      return [];
+    try {
+      if (fs.existsSync(this.path)) {
+        const data = await fs.promises.readFile(this.path, "utf-8");
+        const result = JSON.parse(data);
+        return result;
+      } else {
+        return [];
+      }
+    } catch (error) {
+      console.error("Error al obtener los productos:", error);
+      throw error;
     }
   };
+
   addProduct = async ({
     title,
     description,
@@ -24,40 +31,47 @@ export default class ProductManager {
     category,
     thumbnails,
   }) => {
-    const products = await this.getProducts();
-    if (!Array.isArray(products)) {
-      console.error("El archivo no contiene una lista de productos válida");
-      return;
-    }
-    if (!title || !description || !code || !price || !stock || !category) {
-      console.error("Todos los campos son obligatorios");
-      return;
-    }
-    const productCode = products.findIndex((prod) => prod.code === code);
-    if (productCode !== -1) {
-      console.log(`Ya existe un producto con el code: ${code}`);
-      return;
-    }
-    const newProduct = {
-      id: products.length === 0 ? 1 : products[products.length - 1].id + 1,
-      title,
-      description,
-      code,
-      price,
-      status: status || true,
-      stock,
-      category,
-      thumbnails: thumbnails || [],
-    };
+    try {
+      const products = await this.getProducts();
+      if (!Array.isArray(products)) {
+        console.error("El archivo no contiene una lista de productos válida");
+        return;
+      }
+      if (!title || !description || !code || !price || !stock || !category) {
+        console.error("Todos los campos son obligatorios");
+        return;
+      }
+      const productCode = products.findIndex((prod) => prod.code === code);
+      if (productCode !== -1) {
+        console.log(`Ya existe un producto con el code: ${code}`);
+        return;
+      }
+      const newProduct = {
+        id: products.length === 0 ? 1 : products[products.length - 1].id + 1,
+        title,
+        description,
+        code,
+        price,
+        status: status || true,
+        stock,
+        category,
+        thumbnails: thumbnails || [],
+      };
 
-    products.push(newProduct);
+      products.push(newProduct);
 
-    await fs.promises.writeFile(
-      this.path,
-      JSON.stringify(products, null, "\t")
-    );
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify(products, null, "\t")
+      );
 
-    return newProduct;
+      this.io.emit("actualizarProductos", await this.getProducts());
+
+      return newProduct;
+    } catch (error) {
+      console.error("Error al agregar el producto:", error);
+      throw error;
+    }
   };
 
   getProductsById = async (id) => {
