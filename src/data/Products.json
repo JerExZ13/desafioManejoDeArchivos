@@ -18,7 +18,7 @@
 		"title": "Milk",
 		"description": "1 liter",
 		"code": "MILK001",
-		"price": 2.5,
+		"price": 25,
 		"status": true,
 		"stock": 10,
 		"category": "food",
@@ -42,20 +42,6 @@
 		]
 	},
 	{
-		"id": 5,
-		"title": "Milk",
-		"description": "1 liter",
-		"code": "MILK001",
-		"price": 2.5,
-		"status": true,
-		"stock": 10,
-		"category": "food",
-		"thumbnails": [
-			"http://localhost:8080/images/milk1.jpg",
-			"http://localhost:8080/images/milk2.jpg"
-		]
-	},
-	{
 		"id": 6,
 		"title": "Cheese",
 		"description": "500 gr",
@@ -74,7 +60,7 @@
 		"title": "Milk",
 		"description": "1 liter",
 		"code": "MILK001",
-		"price": 2.5,
+		"price": 23,
 		"status": true,
 		"stock": 10,
 		"category": "food",
@@ -193,6 +179,31 @@
 		"thumbnails": [
 			"http://example.com/new_image1.jpg",
 			"http://example.com/new_image2.jpg"
+		]
+	},
+	{
+		"id": 19,
+		"title": "Nuevo Producto",
+		"description": "Descripción del nuevo producto",
+		"code": "NP1",
+		"price": 39.99,
+		"status": true,
+		"stock": 20,
+		"category": "Nueva Categoría",
+		"thumbnails": []
+	},
+	{
+		"id": 20,
+		"title": "Cheese",
+		"description": "500 gr",
+		"code": "AG3",
+		"price": 23,
+		"status": true,
+		"stock": 4,
+		"category": "food",
+		"thumbnails": [
+			"http://localhost:8080/images/image1.jpg",
+			"http://localhost:8080/images/image2.jpg"
 		]
 	}
 ]

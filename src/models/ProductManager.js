@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import { promises as fsPromises } from "fs";
 
 export default class ProductManager {
   constructor(io) {
@@ -8,16 +8,17 @@ export default class ProductManager {
 
   getProducts = async () => {
     try {
-      if (fs.existsSync(this.path)) {
-        const data = await fs.promises.readFile(this.path, "utf-8");
-        const result = JSON.parse(data);
-        return result;
-      } else {
+      await fsPromises.access(this.path);
+      const data = await fsPromises.readFile(this.path, "utf-8");
+      const result = JSON.parse(data);
+      return result;
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        await fsPromises.writeFile(this.path, "[]");
         return [];
       }
-    } catch (error) {
-      console.error("Error al obtener los productos:", error);
-      throw error;
+      console.error("Error al obtener los productos:", error.message);
+      return [];
     }
   };
 
@@ -60,7 +61,7 @@ export default class ProductManager {
 
       products.push(newProduct);
 
-      await fs.promises.writeFile(
+      await fsPromises.writeFile(
         this.path,
         JSON.stringify(products, null, "\t")
       );
@@ -69,7 +70,7 @@ export default class ProductManager {
 
       return newProduct;
     } catch (error) {
-      console.error("Error al agregar el producto:", error);
+      console.error("Error al agregar el producto:", error.message);
       throw error;
     }
   };
@@ -95,7 +96,7 @@ export default class ProductManager {
 
         products[productIndex] = updatedProduct;
 
-        await fs.promises.writeFile(
+        await fsPromises.writeFile(
           this.path,
           JSON.stringify(products, null, "\t")
         );
@@ -105,7 +106,7 @@ export default class ProductManager {
         return `El producto a actualizar con el id ${id} no existe en la lista`;
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw error;
     }
   };
@@ -115,7 +116,7 @@ export default class ProductManager {
     const productIndex = products.findIndex((product) => product.id === id);
     if (productIndex !== -1) {
       products.splice(productIndex, 1);
-      await fs.promises.writeFile(
+      await fsPromises.writeFile(
         this.path,
         JSON.stringify(products, null, "\t")
       );

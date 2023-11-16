@@ -1,6 +1,7 @@
 import express from "express";
 import { body, param, validationResult } from "express-validator";
 import ProductManager from "../models/ProductManager.js";
+import { promises as fsPromises } from "fs";
 
 const router = express.Router();
 
@@ -13,8 +14,28 @@ const setupProductRoutes = (io) => {
       const products = await productManager.getProducts(limit);
       res.json(products);
     } catch (error) {
-      console.error("Error al obtener los productos:", error);
-      res.status(500).json({ error: "Error interno del servidor" });
+      console.error("Error al obtener los productos:", error.message);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  router.get("/:pid", param("pid").isInt(), async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const { pid } = req.params;
+      const product = await productManager.getProductsById(parseInt(pid, 10));
+      if (product) {
+        res.json(product);
+      } else {
+        res.status(404).json({ error: "Producto no encontrado" });
+      }
+    } catch (error) {
+      console.error("Error al obtener el producto por ID:", error.message);
+      res.status(500).json({ error: error.message });
     }
   });
 
@@ -93,6 +114,7 @@ const setupProductRoutes = (io) => {
         parseInt(pid, 10)
       );
       if (productDeleted) {
+        io.emit("actualizarProductos", await productManager.getProducts());
         res.json(productDeleted);
       } else {
         res.status(404).json({ error: "Producto no encontrado" });
