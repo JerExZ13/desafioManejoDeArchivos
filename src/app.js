@@ -17,14 +17,19 @@ const io = new Server(server);
 const port = 8080;
 
 const hbs = exphbs.create({
-  defaultLayout: "home",
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views/layouts"),
+  partialsDir: path.join(__dirname, "views/layouts/partials"),
 });
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
@@ -32,10 +37,10 @@ app.use("/api/products", productRoutes(io));
 app.use("/api/carts", cartRoutes);
 
 app.get("/", (req, res) => {
-  res.send("home");
+  res.render("home");
 });
 
-app.get("realtimeproducts", (req, res) => {
+app.get("/realtimeproducts", (req, res) => {
   res.render("realTimeProducts");
 });
 

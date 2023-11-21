@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Layout</title>
+</head>
+<body>
+  {{> header}}
+
+{{>realTimeProducts}}
+
+{{{body}}}
+{{> footer}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
